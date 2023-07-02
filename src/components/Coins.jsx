@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import {server} from "../index"
-import { Container, HStack, Button } from '@chakra-ui/react'
+import { Container, HStack, Button, RadioGroup, Radio } from '@chakra-ui/react'
 import Loader from "./Loader";
 import ErrorComp from './ErrorComp';
 import CoinCard from './CoinCard';
@@ -28,12 +28,12 @@ const Coins = () => {
     const changePage = ()=>{
       setPage(page + 1);
       setLoading(true);
-    }
+    };
 
     const prevPage = ()=>{
       setPage(page - 1);
       setLoading(true);
-    }
+    };
 
 
     useEffect(() => {
@@ -60,11 +60,20 @@ const Coins = () => {
     <Container maxW={"container.xl"}>
         {loading? <Loader/> : 
         <>
+        <RadioGroup value={currency} onChange={setCurrency}>
+          <HStack spacing={"4"}>
+            <Radio value={"inr"} >INR</Radio>
+            <Radio value={"usd"} >USD</Radio>
+            <Radio value={"eur"} >EUR</Radio>
+
+          </HStack>
+        </RadioGroup>
         <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
             {
                 coins.map((coin) => (
                     // <div key={exchange.id}>{exchange.name}</div>
                     <CoinCard 
+                    id = {coin.id}
                     key={coin.id} 
                     name={coin.name} 
                     price={coin.current_price}

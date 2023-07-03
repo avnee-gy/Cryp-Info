@@ -1,3 +1,20 @@
+# Cryp-Info
+A Web App made using React, Chakra UI that shows realtime Cryptocurrency Exchanges and Coins, their prices and helps user analyse trends.
+<br>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<hr>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
